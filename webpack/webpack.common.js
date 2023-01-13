@@ -53,5 +53,6 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name]-[hash].js',
     chunkFilename: '[id].js',
+    clean: true, // O QUE ISSO FAZ
   },
 };

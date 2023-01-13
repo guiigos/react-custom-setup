@@ -15,13 +15,14 @@ module.exports = {
     static: path.resolve(__dirname, '../public/'),
     port: 8080,
     open: true,
+    hot: true,
   },
   module: {
     rules: [
       {
         test: /\.(s(a|c)ss)$/,
         exclude: /node_modules/,
-        use: ['sass-loader', 'style-loader', 'css-loader'],
+        use: ['sass-loader', 'style-loader', 'css-loader'], // postcss-loader
       },
     ],
   },
