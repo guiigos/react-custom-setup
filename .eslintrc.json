@@ -23,6 +23,8 @@
     "react"
   ],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "quote-props": ["error", "consistent"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["./webpack/*.js"]}]
   }
 }

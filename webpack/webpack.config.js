@@ -4,7 +4,7 @@ const production = require('./webpack.production');
 const common = require('./webpack.common');
 
 module.exports = (env, args) => {
-  switch(args.mode) {
+  switch (args.mode) {
     case 'development':
       return merge(common, development);
     case 'production':
@@ -12,4 +12,4 @@ module.exports = (env, args) => {
     default:
       throw new Error('No matching configuration was found!');
   }
-}
+};

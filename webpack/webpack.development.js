@@ -20,9 +20,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(s(a|c)ss)$/,
+        test: /\.css$/,
+        exclude: [
+          /\.module\.css$/,
+          /node_modules/,
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.module\.css$/,
         exclude: /node_modules/,
-        use: ['sass-loader', 'style-loader', 'css-loader'], // postcss-loader
+        use: ['style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          }],
       },
     ],
   },

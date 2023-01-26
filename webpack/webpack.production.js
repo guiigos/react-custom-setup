@@ -22,9 +22,39 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css)$/,
+        test: /\.css$/,
+        exclude: [
+          /\.module\.css$/,
+          /node_modules/,
+        ],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: false,
+            },
+          },
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.module\.css$/,
         exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: false,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+            },
+          },
+        ],
       },
     ],
   },
