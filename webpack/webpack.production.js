@@ -1,23 +1,23 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: "production",
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../public/template.production.html'),
-      filename: 'index.html',
-      inject: 'body',
+      template: path.resolve(__dirname, "../public/template.production.html"),
+      filename: "index.html",
+      inject: "body",
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].bundle.css',
-      chunkFilename: '[id].css',
+      filename: "[name].bundle.css",
+      chunkFilename: "[id].css",
     }),
   ],
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
+    "react": "React",
+    "react-dom": "ReactDOM",
   },
   module: {
     rules: [
@@ -34,7 +34,7 @@ module.exports = {
               hmr: false,
             },
           },
-          'css-loader',
+          "css-loader",
         ],
       },
       {
@@ -48,7 +48,7 @@ module.exports = {
             },
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true,
               importLoaders: 1,
